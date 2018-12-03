@@ -10,9 +10,17 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    var dynamicAnimator: UIDynamicAnimator!
+    var dynamicItemBehavior: UIDynamicItemBehavior!
+    var collisionBehavior: UICollisionBehavior!
+   
     @IBOutlet weak var plane: UIImageView!
     
     @IBOutlet weak var cloud: UIImageView!
+    
+    @IBOutlet weak var cloud1: UIImageView!
+    
+    @IBOutlet weak var cloud2: UIImageView!
     
     @IBOutlet weak var road: UIImageView!
     
@@ -20,9 +28,11 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var crows: UIImageView!
     
+    @IBOutlet weak var crows1: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         var planeArray: [UIImage]!
         
         planeArray = [UIImage(named: "plane1.png")!,
@@ -42,14 +52,29 @@ class ViewController: UIViewController {
                       UIImage(named: "plane15.png")!]
         
         plane.image = UIImage.animatedImage(with: planeArray, duration: 1)
-            
+    
         var cloudArray: [UIImage]!
             
         cloudArray = [UIImage(named: "cloud.png")!,
                       UIImage(named: "cloud2.png")!]
 
         cloud.image = UIImage.animatedImage(with: cloudArray, duration: 1)
+        //
         
+        var cloud1Array: [UIImage]!
+        
+        cloud1Array = [UIImage(named: "cloud.png")!,
+                      UIImage(named: "cloud2.png")!]
+        
+        cloud1.image = UIImage.animatedImage(with: cloud1Array, duration: 1)
+        //
+        var cloud2Array: [UIImage]!
+        
+        cloud2Array = [UIImage(named: "cloud.png")!,
+                      UIImage(named: "cloud2.png")!]
+        
+        cloud2.image = UIImage.animatedImage(with: cloudArray, duration: 1)
+        //
         var roadArray: [UIImage]!
         
         roadArray = [UIImage(named: "road1.png")!,
@@ -112,13 +137,54 @@ class ViewController: UIViewController {
         
         crows.image = UIImage.animatedImage(with: crowsArray, duration: 1)
         
-        UIView.animate(withDuration: 5.0, delay: 1.0, options: [UIView.AnimationOptions.repeat, .curveLinear],
-                      animations:
-                      {
-                            self.crows.center.x -= self.view.bounds.width
+        crows.frame = CGRect(x:700, y: 100, width: 200, height: 100)
+        self.view.addSubview(crows)
+        
+        UIView.animate(withDuration: 4.0, delay: 0, options: [UIView.AnimationOptions.repeat, .curveLinear],
+                       animations:
+            {
+                self.crows.center.x -= self.view.bounds.width + 1500
                 
         }, completion: nil
         )
+        
+        dynamicAnimator = UIDynamicAnimator(referenceView: self.view)
+        
+        dynamicItemBehavior = UIDynamicItemBehavior(items: [crows])
+        self.dynamicItemBehavior.addLinearVelocity(CGPoint(x: -200, y: 0), for: crows)
+        dynamicAnimator.addBehavior(dynamicItemBehavior)
+        
+        collisionBehavior = UICollisionBehavior (items: [crows]);
+        dynamicAnimator.addBehavior(collisionBehavior)
+        collisionBehavior.translatesReferenceBoundsIntoBoundary = true
+        collisionBehavior.addBoundary(withIdentifier: "barrier" as NSCopying, for: UIBezierPath(rect: plane.frame))
+
+        
+//
+//        var crows1Array: [UIImage]!
+//
+//        crows1Array = [UIImage(named: "bird1.png")!,
+//                      UIImage(named:  "bird2.png")!,
+//                      UIImage(named:  "bird3.png")!,
+//                      UIImage(named:  "bird4.png")!,
+//                      UIImage(named:  "bird5.png")!,
+//                      UIImage(named:  "bird6.png")!,
+//                      UIImage(named:  "bird7.png")!,
+//                      UIImage(named:  "bird8.png")!,
+//                      UIImage(named:  "bird9.png")!,
+//                      UIImage(named:  "bird10.png")!]
+//
+//
+//        crows1.image = UIImage.animatedImage(with: crows1Array, duration: 1)
+//
+//        UIView.animate(withDuration: 4.0, delay: 2.0, options: [UIView.AnimationOptions.repeat, .curveLinear],
+//                       animations:
+//            {
+//                self.crows1.center.x -= self.view.bounds.width
+//
+//        }, completion: nil
+//        )
+
 
             
     }
