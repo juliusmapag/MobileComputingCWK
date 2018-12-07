@@ -19,7 +19,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6SV-si-c91">
-                                <rect key="frame" x="0.0" y="-3" width="948" height="425"/>
+                                <rect key="frame" x="0.0" y="-3" width="948" height="409"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WT8-KM-Car">
+                                <rect key="frame" x="0.0" y="98" width="1013" height="198"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nhn-fH-EwF">
+                                <rect key="frame" x="580" y="20" width="235" height="112"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="U0B-Tm-Gkm" customClass="planedrag" customModule="MobileApp" customModuleProvider="target">
@@ -27,23 +35,23 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OkQ-eG-Mae">
-                                <rect key="frame" x="36" y="20" width="235" height="112"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WT8-KM-Car">
-                                <rect key="frame" x="-24" y="133" width="1057" height="187"/>
+                                <rect key="frame" x="84" y="20" width="235" height="112"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yiZ-Hh-heq">
-                                <rect key="frame" x="620" y="60" width="146" height="79"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jh3-b8-kck">
-                                <rect key="frame" x="508" y="61" width="144" height="77"/>
+                                <rect key="frame" x="661" y="61" width="146" height="79"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OdA-Fr-P9U">
-                                <rect key="frame" x="215" y="20" width="240" height="112"/>
+                                <rect key="frame" x="328" y="20" width="240" height="112"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jh3-b8-kck">
+                                <rect key="frame" x="661" y="147" width="144" height="77"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="flp-Bv-rzg">
+                                <rect key="frame" x="661" y="244" width="137" height="77"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
@@ -53,8 +61,10 @@
                     <connections>
                         <outlet property="cloud" destination="OkQ-eG-Mae" id="Dom-Po-ekS"/>
                         <outlet property="cloud1" destination="OdA-Fr-P9U" id="doS-5K-S7a"/>
+                        <outlet property="cloud2" destination="nhn-fH-EwF" id="fmt-yZ-PjI"/>
                         <outlet property="crows" destination="yiZ-Hh-heq" id="sLC-UW-1C0"/>
                         <outlet property="crows1" destination="jh3-b8-kck" id="5J9-H8-WGP"/>
+                        <outlet property="crows2" destination="flp-Bv-rzg" id="Yc8-6h-vO8"/>
                         <outlet property="plane" destination="U0B-Tm-Gkm" id="kej-ek-mcT"/>
                         <outlet property="road" destination="6SV-si-c91" id="G9z-Jx-7Lm"/>
                         <outlet property="tree" destination="WT8-KM-Car" id="VhM-J0-vVp"/>
@@ -62,7 +72,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1173" y="-140"/>
+            <point key="canvasLocation" x="-921.58920539730138" y="-168.80000000000001"/>
         </scene>
     </scenes>
 </document>

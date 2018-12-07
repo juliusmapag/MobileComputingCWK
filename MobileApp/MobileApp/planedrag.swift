@@ -10,8 +10,9 @@ import UIKit
 
 class planedrag: UIImageView {
     
-    var startLocation: CGPoint?
+    var delegate: subviewDelegate?
     
+    var startLocation: CGPoint?
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         
@@ -25,6 +26,8 @@ class planedrag: UIImageView {
         let dy = currentLocation!.y - startLocation!.y
         
         self.center = CGPoint(x: self.center.x+dx, y: self.center.y+dy)
+        
+        self.delegate?.changeSomething()
     }
     
     
