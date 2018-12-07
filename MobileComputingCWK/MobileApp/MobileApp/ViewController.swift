@@ -5,16 +5,20 @@
 //  Created by Xianhui Che on 25/08/2017.
 //  Copyright © 2017 Xianhui Che. All rights reserved.
 //
-
 import UIKit
 
-class ViewController: UIViewController {
+protocol subviewDelegate {
+    func changeSomething()
+}
+
+class ViewController: UIViewController, subviewDelegate {
+    func changeSomething() {
+        collisionBehavior.removeAllBoundaries()
+        collisionBehavior.addBoundary(withIdentifier: "barrier" as NSCopying, for: UIBezierPath(rect: plane.frame))
+    }
     
-    var dynamicAnimator: UIDynamicAnimator!
-    var dynamicItemBehavior: UIDynamicItemBehavior!
-    var collisionBehavior: UICollisionBehavior!
    
-    @IBOutlet weak var plane: UIImageView!
+    @IBOutlet weak var plane: planedrag!
     
     @IBOutlet weak var cloud: UIImageView!
     
@@ -30,8 +34,56 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var crows1: UIImageView!
     
+    var dynamicAnimator: UIDynamicAnimator!
+    var dynamicItemBehavior: UIDynamicItemBehavior!
+    var collisionBehavior: UICollisionBehavior!
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        plane.delegate = self
+        
+        dynamicAnimator = UIDynamicAnimator(referenceView: self.view)
+        dynamicItemBehavior = UIDynamicItemBehavior(items: [crows])
+        collisionBehavior = UICollisionBehavior (items: [crows]);
+        collisionBehavior.addBoundary(withIdentifier: "barrier" as NSCopying, for: UIBezierPath(rect: plane.frame))
+        dynamicAnimator.addBehavior(dynamicItemBehavior)
+        dynamicAnimator.addBehavior(collisionBehavior)
+        
+        
+        var crowsArray: [UIImage]!
+        
+        crowsArray = [UIImage(named: "bird1.png")!,
+                      UIImage(named:  "bird2.png")!,
+                      UIImage(named:  "bird3.png")!,
+                      UIImage(named:  "bird4.png")!,
+                      UIImage(named:  "bird5.png")!,
+                      UIImage(named:  "bird6.png")!,
+                      UIImage(named:  "bird7.png")!,
+                      UIImage(named:  "bird8.png")!,
+                      UIImage(named:  "bird9.png")!,
+                      UIImage(named:  "bird10.png")!]
+        
+        crows.image = UIImage.animatedImage(with: crowsArray, duration: 1)
+        
+        crows.frame = CGRect(x:400, y: 100, width: 150, height: 80)
+        self.view.addSubview(crows)
+        
+//        UIView.animate(withDuration: 4.0, delay: 0, options: [UIView.AnimationOptions.repeat, .curveLinear],
+//                       animations:
+//            {
+//                self.crows.center.x -= self.view.bounds.width + 1500
+//
+//        }, completion: nil
+//        )
+//
+        self.dynamicItemBehavior.addItem(crows)
+        self.dynamicItemBehavior.addLinearVelocity(CGPoint(x: -300, y: 0), for: crows)
+        self.collisionBehavior.addItem(crows)
+        
+        
+        
         
         var planeArray: [UIImage]!
         
@@ -52,6 +104,7 @@ class ViewController: UIViewController {
                       UIImage(named: "plane15.png")!]
         
         plane.image = UIImage.animatedImage(with: planeArray, duration: 1)
+        
     
         var cloudArray: [UIImage]!
             
@@ -121,43 +174,6 @@ class ViewController: UIViewController {
         
         
         tree.image = UIImage.animatedImage(with: treeArray, duration: 1)
-        
-        var crowsArray: [UIImage]!
-        
-        crowsArray = [UIImage(named: "bird1.png")!,
-                     UIImage(named:  "bird2.png")!,
-                     UIImage(named:  "bird3.png")!,
-                     UIImage(named:  "bird4.png")!,
-                     UIImage(named:  "bird5.png")!,
-                     UIImage(named:  "bird6.png")!,
-                     UIImage(named:  "bird7.png")!,
-                     UIImage(named:  "bird8.png")!,
-                     UIImage(named:  "bird9.png")!,
-                     UIImage(named:  "bird10.png")!]
-        
-        crows.image = UIImage.animatedImage(with: crowsArray, duration: 1)
-        
-        crows.frame = CGRect(x:700, y: 100, width: 200, height: 100)
-        self.view.addSubview(crows)
-        
-        UIView.animate(withDuration: 4.0, delay: 0, options: [UIView.AnimationOptions.repeat, .curveLinear],
-                       animations:
-            {
-                self.crows.center.x -= self.view.bounds.width + 1500
-                
-        }, completion: nil
-        )
-        
-        dynamicAnimator = UIDynamicAnimator(referenceView: self.view)
-        
-        dynamicItemBehavior = UIDynamicItemBehavior(items: [crows])
-        self.dynamicItemBehavior.addLinearVelocity(CGPoint(x: -200, y: 0), for: crows)
-        dynamicAnimator.addBehavior(dynamicItemBehavior)
-        
-        collisionBehavior = UICollisionBehavior (items: [crows]);
-        dynamicAnimator.addBehavior(collisionBehavior)
-        collisionBehavior.translatesReferenceBoundsIntoBoundary = true
-        collisionBehavior.addBoundary(withIdentifier: "barrier" as NSCopying, for: UIBezierPath(rect: plane.frame))
 
         
 //
