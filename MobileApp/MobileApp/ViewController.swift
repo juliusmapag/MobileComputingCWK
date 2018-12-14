@@ -17,8 +17,15 @@ class ViewController: UIViewController, subviewDelegate {
         collisionBehavior.addBoundary(withIdentifier: "barrier" as NSCopying, for: UIBezierPath(rect: plane.frame))
     }
     
+    
+    let W = UIScreen.main.bounds.width
+    let H = UIScreen.main.bounds.height
+    
+    
    
     @IBOutlet weak var plane: planedrag!
+    
+    @IBOutlet weak var coins: UIImageView!
     
     @IBOutlet weak var cloud: UIImageView!
     
@@ -36,11 +43,15 @@ class ViewController: UIViewController, subviewDelegate {
     
     @IBOutlet weak var crows2: UIImageView!
     
+    @IBOutlet weak var gameover: UIView!
+
+    
     var dynamicAnimator: UIDynamicAnimator!
     var dynamicItemBehavior: UIDynamicItemBehavior!
     var collisionBehavior: UICollisionBehavior!
-
     
+    let coinArray = [0,2,4,6,8,10,12,14,16,18]
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -52,6 +63,32 @@ class ViewController: UIViewController, subviewDelegate {
         collisionBehavior.addBoundary(withIdentifier: "barrier" as NSCopying, for: UIBezierPath(rect: plane.frame))
         dynamicAnimator.addBehavior(dynamicItemBehavior)
         dynamicAnimator.addBehavior(collisionBehavior)
+        
+        //animation of coins
+        
+        for index in 0...9{
+            let delay = Double(self.coinArray[index])
+            let release = DispatchTime.now() + delay
+            DispatchQueue.main.asyncAfter(deadline: release){
+                let coin = UIImageView(image: nil)
+                var coinArray: [UIImage]
+                
+                coinArray = [UIImage(named: "coin.png")!]
+                
+                coin.image = UIImage.animatedImage(with: coinArray, duration: 0.5)
+                coin.frame = CGRect(x: self.W, y: CGFloat (arc4random_uniform(UInt32(self.H)-50)), width: self.W*(0.1), height:self.H*(0.1))
+                
+                self.view.addSubview(coin)
+                self.view.bringSubviewToFront(coin)
+                
+                self.dynamicItemBehavior.addItem(coin)
+                self.dynamicItemBehavior.addLinearVelocity(CGPoint(x: -100, y:0), for: coin)
+                self.collisionBehavior.addItem(coin)
+                
+            }
+        }
+        
+        
         
         //crows
         var crowsArray: [UIImage]!
@@ -69,13 +106,15 @@ class ViewController: UIViewController, subviewDelegate {
         
         crows.image = UIImage.animatedImage(with: crowsArray, duration: 1)
         
-        crows.frame = CGRect(x:400, y: 100, width: 150, height: 80)
+        crows.frame = CGRect(x:400, y: 100, width: 120, height: 60)
         self.view.addSubview(crows)
         
         self.dynamicItemBehavior.addItem(crows)
         self.dynamicItemBehavior.addLinearVelocity(CGPoint(x: -300, y: 0), for: crows)
         self.collisionBehavior.addItem(crows)
         //
+        
+       
         
         //crows1
         var crows1Array: [UIImage]!
@@ -93,11 +132,11 @@ class ViewController: UIViewController, subviewDelegate {
         
         crows1.image = UIImage.animatedImage(with: crows1Array, duration: 1)
         
-        crows1.frame = CGRect(x:400, y: 100, width: 150, height: 80)
+        crows1.frame = CGRect(x:400, y: 100, width: 100, height: 40)
         self.view.addSubview(crows1)
         
-        let when = DispatchTime.now() + 2
-        DispatchQueue.main.asyncAfter(deadline: when) {
+        var bird = DispatchTime.now() + 8
+        DispatchQueue.main.asyncAfter(deadline: bird) {
             self.dynamicItemBehavior.addItem(self.crows1)
             self.dynamicItemBehavior.addLinearVelocity(CGPoint(x: -300, y: 0), for: self.crows1)
             self.collisionBehavior.addItem(self.crows1)
@@ -120,11 +159,11 @@ class ViewController: UIViewController, subviewDelegate {
         
         crows2.image = UIImage.animatedImage(with: crows2Array, duration: 1)
         
-        crows2.frame = CGRect(x:400, y: 100, width: 150, height: 80)
+        crows2.frame = CGRect(x:400, y: 100, width: 100, height: 40)
         self.view.addSubview(crows2)
         
-        _ = DispatchTime.now() + 6
-        DispatchQueue.main.asyncAfter(deadline: when) {
+        bird = DispatchTime.now() + 12
+        DispatchQueue.main.asyncAfter(deadline: bird) {
             self.dynamicItemBehavior.addItem(self.crows2)
             self.dynamicItemBehavior.addLinearVelocity(CGPoint(x: -200, y: 0), for: self.crows2)
             self.collisionBehavior.addItem(self.crows2)
@@ -152,6 +191,8 @@ class ViewController: UIViewController, subviewDelegate {
                       UIImage(named: "plane15.png")!]
         
         plane.image = UIImage.animatedImage(with: planeArray, duration: 1)
+        plane.frame = CGRect(x: 0, y: H*(0.2), width: W*(0.2), height: H*(0.125))
+        
         
     
         var cloudArray: [UIImage]!
@@ -160,21 +201,9 @@ class ViewController: UIViewController, subviewDelegate {
                       UIImage(named: "cloud2.png")!]
 
         cloud.image = UIImage.animatedImage(with: cloudArray, duration: 1)
+        cloud.frame = CGRect(x: 0, y: 0, width: W*1, height: H * (0.5))
         //
-        
-        var cloud1Array: [UIImage]!
-        
-        cloud1Array = [UIImage(named: "cloud.png")!,
-                      UIImage(named: "cloud2.png")!]
-        
-        cloud1.image = UIImage.animatedImage(with: cloud1Array, duration: 1)
-        //
-        var cloud2Array: [UIImage]!
-        
-        cloud2Array = [UIImage(named: "cloud.png")!,
-                      UIImage(named: "cloud2.png")!]
-        
-        cloud2.image = UIImage.animatedImage(with: cloudArray, duration: 1)
+    
         //
         var roadArray: [UIImage]!
         
@@ -199,6 +228,7 @@ class ViewController: UIViewController, subviewDelegate {
                       UIImage(named: "road19.png")!]
         
         road.image = UIImage.animatedImage(with: roadArray, duration: 1)
+        road.frame = CGRect (x:0, y:0, width: W*1, height: H*1)
         
         var treeArray: [UIImage]!
         
@@ -222,16 +252,17 @@ class ViewController: UIViewController, subviewDelegate {
         
         
         tree.image = UIImage.animatedImage(with: treeArray, duration: 1)
+        tree.frame = CGRect(x: 0, y: 0, width: W*1, height: H*(0.78))
+        
+        let timer = DispatchTime.now() + 21
+        DispatchQueue.main.asyncAfter(deadline: timer) {
+            self.gameover.alpha = 1
+        }
+        
+        }
 
-
-            
-    }
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-    
-    
 }
-
+}

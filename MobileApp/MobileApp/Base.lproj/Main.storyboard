@@ -26,10 +26,6 @@
                                 <rect key="frame" x="0.0" y="98" width="1013" height="198"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nhn-fH-EwF">
-                                <rect key="frame" x="580" y="20" width="235" height="112"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                             <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="U0B-Tm-Gkm" customClass="planedrag" customModule="MobileApp" customModuleProvider="target">
                                 <rect key="frame" x="38" y="152" width="148" height="65"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -42,10 +38,6 @@
                                 <rect key="frame" x="661" y="61" width="146" height="79"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OdA-Fr-P9U">
-                                <rect key="frame" x="328" y="20" width="240" height="112"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jh3-b8-kck">
                                 <rect key="frame" x="661" y="147" width="144" height="77"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -54,17 +46,44 @@
                                 <rect key="frame" x="661" y="244" width="137" height="77"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="poQ-cK-vFB">
+                                <rect key="frame" x="213" y="123" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <view alpha="0.0" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vsz-C8-P4K">
+                                <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oRx-Le-0uQ">
+                                        <rect key="frame" x="255" y="147" width="157" height="80"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.16528100005678076" green="0.41753022172243104" blue="0.65085952976424877" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
+                                        <state key="normal" title="Replay">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="titleShadowColor" red="0.1018697165" green="0.01266230722" blue="0.66666668650000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="coin:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ONK-bh-6yE"/>
+                                            <action selector="coins:" destination="BYZ-38-t0r" eventType="touchUpInside" id="86G-GX-0Di"/>
+                                            <action selector="replay:" destination="BYZ-38-t0r" eventType="touchUpInside" id="F6g-tB-Lzj"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.14947041746944756" green="0.017457297705062436" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="Gameover" destination="vsz-C8-P4K" id="1UG-5W-Eqr"/>
                         <outlet property="cloud" destination="OkQ-eG-Mae" id="Dom-Po-ekS"/>
-                        <outlet property="cloud1" destination="OdA-Fr-P9U" id="doS-5K-S7a"/>
-                        <outlet property="cloud2" destination="nhn-fH-EwF" id="fmt-yZ-PjI"/>
+                        <outlet property="coins" destination="poQ-cK-vFB" id="kns-I2-SPj"/>
                         <outlet property="crows" destination="yiZ-Hh-heq" id="sLC-UW-1C0"/>
                         <outlet property="crows1" destination="jh3-b8-kck" id="5J9-H8-WGP"/>
                         <outlet property="crows2" destination="flp-Bv-rzg" id="Yc8-6h-vO8"/>
+                        <outlet property="gameover" destination="vsz-C8-P4K" id="xJs-gp-D8x"/>
                         <outlet property="plane" destination="U0B-Tm-Gkm" id="kej-ek-mcT"/>
                         <outlet property="road" destination="6SV-si-c91" id="G9z-Jx-7Lm"/>
                         <outlet property="tree" destination="WT8-KM-Car" id="VhM-J0-vVp"/>
