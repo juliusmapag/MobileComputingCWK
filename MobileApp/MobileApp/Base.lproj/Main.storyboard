@@ -69,6 +69,13 @@
                                             <action selector="replay:" destination="BYZ-38-t0r" eventType="touchUpInside" id="F6g-tB-Lzj"/>
                                         </connections>
                                     </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Score:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vun-cK-oJa">
+                                        <rect key="frame" x="249" y="256" width="230" height="93"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" red="0.14947041746944756" green="0.017457297705062436" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
@@ -86,6 +93,7 @@
                         <outlet property="gameover" destination="vsz-C8-P4K" id="xJs-gp-D8x"/>
                         <outlet property="plane" destination="U0B-Tm-Gkm" id="kej-ek-mcT"/>
                         <outlet property="road" destination="6SV-si-c91" id="G9z-Jx-7Lm"/>
+                        <outlet property="scorelabel" destination="Vun-cK-oJa" id="90c-us-3FH"/>
                         <outlet property="tree" destination="WT8-KM-Car" id="VhM-J0-vVp"/>
                     </connections>
                 </viewController>

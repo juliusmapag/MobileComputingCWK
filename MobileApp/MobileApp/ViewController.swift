@@ -15,8 +15,11 @@ class ViewController: UIViewController, subviewDelegate {
     func changeSomething() {
         collisionBehavior.removeAllBoundaries()
         collisionBehavior.addBoundary(withIdentifier: "barrier" as NSCopying, for: UIBezierPath(rect: plane.frame))
+        
+        scorelabel.text = "Score:\(score)"
     }
     
+    var score = 0
     
     let W = UIScreen.main.bounds.width
     let H = UIScreen.main.bounds.height
@@ -45,6 +48,7 @@ class ViewController: UIViewController, subviewDelegate {
     
     @IBOutlet weak var gameover: UIView!
 
+    @IBOutlet weak var scorelabel: UILabel!
     
     var dynamicAnimator: UIDynamicAnimator!
     var dynamicItemBehavior: UIDynamicItemBehavior!
@@ -85,11 +89,12 @@ class ViewController: UIViewController, subviewDelegate {
                 self.dynamicItemBehavior.addLinearVelocity(CGPoint(x: -100, y:0), for: coin)
                 self.collisionBehavior.addItem(coin)
                 
+                self.score += (100)
             }
         }
         
         
-        
+
         //crows
         var crowsArray: [UIImage]!
         
