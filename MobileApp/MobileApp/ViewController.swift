@@ -16,7 +16,7 @@ class ViewController: UIViewController, subviewDelegate {
         collisionBehavior.removeAllBoundaries()
         collisionBehavior.addBoundary(withIdentifier: "barrier" as NSCopying, for: UIBezierPath(rect: plane.frame))
         
-        scorelabel.text = "Score:\(score)"
+        scorelabel.text = "score:\(score)"
     }
     
     var score = 0
@@ -32,10 +32,6 @@ class ViewController: UIViewController, subviewDelegate {
     
     @IBOutlet weak var cloud: UIImageView!
     
-    @IBOutlet weak var cloud1: UIImageView!
-    
-    @IBOutlet weak var cloud2: UIImageView!
-    
     @IBOutlet weak var road: UIImageView!
     
     @IBOutlet weak var tree: UIImageView!
@@ -47,8 +43,20 @@ class ViewController: UIViewController, subviewDelegate {
     @IBOutlet weak var crows2: UIImageView!
     
     @IBOutlet weak var gameover: UIView!
-
+    
     @IBOutlet weak var scorelabel: UILabel!
+    
+    @IBOutlet weak var replayscreenfit: UIButton!
+    
+    @IBAction func replay(_ sender: Any) {
+        self.viewDidLoad()
+        
+        gameover.isHidden = true
+        crows1.isHidden = true
+        crows.isHidden = true
+        crows2.isHidden = true
+        score = 0
+    }
     
     var dynamicAnimator: UIDynamicAnimator!
     var dynamicItemBehavior: UIDynamicItemBehavior!
@@ -58,6 +66,9 @@ class ViewController: UIViewController, subviewDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        gameover.frame = CGRect(x: 0, y: 0, width: W*(1), height: H*(1))
+        replayscreenfit.frame = CGRect(x: 0, y: 0, width: W*(1), height: H*(1))
         
         plane.delegate = self
         
@@ -90,6 +101,14 @@ class ViewController: UIViewController, subviewDelegate {
                 self.collisionBehavior.addItem(coin)
                 
                 self.score += (100)
+                
+                self.collisionBehavior.action =
+                    {
+                        if coin.frame.intersects(self.plane.frame)
+                        {
+                            coin.removeFromSuperview()
+                        }
+                }
             }
         }
         
@@ -258,13 +277,14 @@ class ViewController: UIViewController, subviewDelegate {
         
         tree.image = UIImage.animatedImage(with: treeArray, duration: 1)
         tree.frame = CGRect(x: 0, y: 0, width: W*1, height: H*(0.78))
+    
         
-        let timer = DispatchTime.now() + 21
+        let timer = DispatchTime.now() + 10
         DispatchQueue.main.asyncAfter(deadline: timer) {
             self.gameover.alpha = 1
-        }
         
         }
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
