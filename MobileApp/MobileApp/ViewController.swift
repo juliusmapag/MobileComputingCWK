@@ -188,13 +188,13 @@ class ViewController: UIViewController, subviewDelegate {
         
         
     
-        var cloudArray: [UIImage]!
-            
-        cloudArray = [UIImage(named: "cloud.png")!,
-                      UIImage(named: "cloud2.png")!]
-
-        cloud.image = UIImage.animatedImage(with: cloudArray, duration: 1)
-        cloud.frame = CGRect(x: 0, y: 0, width: W*1, height: H * (0.5))
+//        var cloudArray: [UIImage]!
+//
+//        cloudArray = [UIImage(named: "cloud.png")!,
+//                      UIImage(named: "cloud2.png")!]
+//
+//        cloud.image = UIImage.animatedImage(with: cloudArray, duration: 1)
+//        cloud.frame = CGRect(x: 0, y: 0, width: W*1, height: H * (0.5))
         //
         
        
@@ -202,55 +202,60 @@ class ViewController: UIViewController, subviewDelegate {
         //
         var roadArray: [UIImage]!
         
-        roadArray = [UIImage(named: "road1.png")!,
-                      UIImage(named: "road2.png")!,
-                      UIImage(named: "road3.png")!,
-                      UIImage(named: "road4.png")!,
-                      UIImage(named: "road5.png")!,
-                      UIImage(named: "road6.png")!,
-                      UIImage(named: "road7.png")!,
-                      UIImage(named: "road8.png")!,
-                      UIImage(named: "road9.png")!,
-                      UIImage(named: "road10.png")!,
-                      UIImage(named: "road11.png")!,
-                      UIImage(named: "road12.png")!,
-                      UIImage(named: "road13.png")!,
-                      UIImage(named: "road14.png")!,
-                      UIImage(named: "road15.png")!,
-                      UIImage(named: "road16.png")!,
-                      UIImage(named: "road17.png")!,
-                      UIImage(named: "road18.png")!,
-                      UIImage(named: "road19.png")!]
+        roadArray = [UIImage(named: "sky25.png")!,
+                      UIImage(named: "sky24.png")!,
+                      UIImage(named: "sky23.png")!,
+                      UIImage(named: "sky22.png")!,
+                      UIImage(named: "sky21.png")!,
+                      UIImage(named: "sky20.png")!,
+                      UIImage(named: "sky19.png")!,
+                      UIImage(named: "sky18.png")!,
+                      UIImage(named: "sky17.png")!,
+                      UIImage(named: "sky16.png")!,
+                      UIImage(named: "sky15.png")!,
+                      UIImage(named: "sky14.png")!,
+                      UIImage(named: "sky13.png")!,
+                      UIImage(named: "sky12.png")!,
+                      UIImage(named: "sky11.png")!,
+                      UIImage(named: "sky10.png")!,
+                      UIImage(named: "sky9.png")!,
+                      UIImage(named: "sky8.png")!,
+                      UIImage(named: "sky7.png")!,
+                      UIImage(named: "sky6.png")!,
+                      UIImage(named: "sky5.png")!,
+                      UIImage(named: "sky4.png")!,
+                      UIImage(named: "sky3.png")!,
+                      UIImage(named: "sky2.png")!]
         
-        road.image = UIImage.animatedImage(with: roadArray, duration: 1)
+        road.image = UIImage.animatedImage(with: roadArray, duration: 5)
         road.frame = CGRect (x:0, y:0, width: W*1, height: H*1)
         
       
        
         
-        var treeArray: [UIImage]!
-        
-        treeArray = [UIImage(named: "tree1.png")!,
-                     UIImage(named: "tree2.png")!,
-                     UIImage(named: "tree3.png")!,
-                     UIImage(named: "tree4.png")!,
-                     UIImage(named: "tree5.png")!,
-                     UIImage(named: "tree6.png")!,
-                     UIImage(named: "tree7.png")!,
-                     UIImage(named: "tree8.png")!,
-                     UIImage(named: "tree9.png")!,
-                     UIImage(named: "tree10.png")!,
-                     UIImage(named: "tree11.png")!,
-                     UIImage(named: "tree12.png")!,
-                     UIImage(named: "tree13.png")!,
-                     UIImage(named: "tree14.png")!,
-                     UIImage(named: "tree15.png")!,
-                     UIImage(named: "tree16.png")!,
-                     UIImage(named: "tree17.png")!]
-        
-        
-        tree.image = UIImage.animatedImage(with: treeArray, duration: 1)
-        tree.frame = CGRect(x: 0, y: 0, width: W*1, height: H*(0.78))
+//        var treeArray: [UIImage]!
+//
+//        treeArray = [UIImage(named: "tree1.png")!,
+//                     UIImage(named: "tree2.png")!,
+//                     UIImage(named: "tree3.png")!,
+//                     UIImage(named: "tree4.png")!,
+//                     UIImage(named: "tree5.png")!,
+//                     UIImage(named: "tree6.png")!,
+//                     UIImage(named: "tree7.png")!,
+//                     UIImage(named: "tree8.png")!,
+//                     UIImage(named: "tree9.png")!,
+//                     UIImage(named: "tree10.png")!,
+//                     UIImage(named: "tree11.png")!,
+//                     UIImage(named: "tree12.png")!,
+//                     UIImage(named: "tree13.png")!,
+//                     UIImage(named: "tree14.png")!,
+//                     UIImage(named: "tree15.png")!,
+//                     UIImage(named: "tree16.png")!,
+//                     UIImage(named: "tree17.png")!]
+//
+//
+//        tree.image = UIImage.animatedImage(with: treeArray, duration: 1)
+//        tree.frame = CGRect(x: 0, y: 0, width: W*1, height: H*(0.78))
         
        
         
