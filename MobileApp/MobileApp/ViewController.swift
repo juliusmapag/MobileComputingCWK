@@ -68,7 +68,9 @@ class ViewController: UIViewController, subviewDelegate {
     var collisionBehavior: UICollisionBehavior!
     
     var coinArray = [0,2,4,6,8,10,12,14,16,18]
-
+    var birdArray = [1,3,5,7,9,11,13,15,17,19]
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -78,8 +80,8 @@ class ViewController: UIViewController, subviewDelegate {
         plane.delegate = self
         
         dynamicAnimator = UIDynamicAnimator(referenceView: self.view)
-        dynamicItemBehavior = UIDynamicItemBehavior(items: [crows, crows1, crows2])
-        collisionBehavior = UICollisionBehavior (items: [crows, crows1, crows2]);
+        dynamicItemBehavior = UIDynamicItemBehavior(items: [])
+        collisionBehavior = UICollisionBehavior (items: []);
         collisionBehavior.addBoundary(withIdentifier: "barrier" as NSCopying, for: UIBezierPath(rect: plane.frame))
         dynamicAnimator.addBehavior(dynamicItemBehavior)
         dynamicAnimator.addBehavior(collisionBehavior)
@@ -134,83 +136,40 @@ class ViewController: UIViewController, subviewDelegate {
         
 
         //crows
-        var crowsArray: [UIImage]!
         
-        crowsArray = [UIImage(named: "bird1.png")!,
-                      UIImage(named:  "bird2.png")!,
-                      UIImage(named:  "bird3.png")!,
-                      UIImage(named:  "bird4.png")!,
-                      UIImage(named:  "bird5.png")!,
-                      UIImage(named:  "bird6.png")!,
-                      UIImage(named:  "bird7.png")!,
-                      UIImage(named:  "bird8.png")!,
-                      UIImage(named:  "bird9.png")!,
-                      UIImage(named:  "bird10.png")!]
-        
-        crows.image = UIImage.animatedImage(with: crowsArray, duration: 1)
-        
-        crows.frame = CGRect(x:400, y: 100, width: 120, height: 60)
-        self.view.addSubview(crows)
-        
-        self.dynamicItemBehavior.addItem(crows)
-        self.dynamicItemBehavior.addLinearVelocity(CGPoint(x: -300, y: 0), for: crows)
-        self.collisionBehavior.addItem(crows)
-        
-       
-        
-        //crows1
-        var crows1Array: [UIImage]!
-        
-        crows1Array = [UIImage(named: "bird1.png")!,
-                      UIImage(named:  "bird2.png")!,
-                      UIImage(named:  "bird3.png")!,
-                      UIImage(named:  "bird4.png")!,
-                      UIImage(named:  "bird5.png")!,
-                      UIImage(named:  "bird6.png")!,
-                      UIImage(named:  "bird7.png")!,
-                      UIImage(named:  "bird8.png")!,
-                      UIImage(named:  "bird9.png")!,
-                      UIImage(named:  "bird10.png")!]
-        
-        crows1.image = UIImage.animatedImage(with: crows1Array, duration: 1)
-        
-        crows1.frame = CGRect(x:400, y: 100, width: 100, height: 40)
-        self.view.addSubview(crows1)
-        
-        var bird = DispatchTime.now() + 8
-        DispatchQueue.main.asyncAfter(deadline: bird) {
-            self.dynamicItemBehavior.addItem(self.crows1)
-            self.dynamicItemBehavior.addLinearVelocity(CGPoint(x: -300, y: 0), for: self.crows1)
-            self.collisionBehavior.addItem(self.crows1)
+        for index in 0...9{
+            let delay = Double(self.birdArray[index])
+            let release = DispatchTime.now() + delay
+            DispatchQueue.main.asyncAfter(deadline: release){
+                let bird = UIImageView(image: nil)
+                var birdImageArray: [UIImage]
+                
+                birdImageArray = [UIImage(named: "bird1.png")!,
+                                  UIImage(named: "bird2.png")!,
+                                  UIImage(named: "bird3.png")!,
+                                  UIImage(named: "bird4.png")!,
+                                  UIImage(named: "bird5.png")!,
+                                  UIImage(named: "bird6.png")!,
+                                  UIImage(named: "bird7.png")!,
+                                  UIImage(named: "bird8.png")!,
+                                  UIImage(named: "bird9.png")!,
+                                  UIImage(named: "bird10.png")!,]
+                                
+                
+                bird.image = UIImage.animatedImage(with: birdImageArray, duration: 0.5)
+                bird.frame = CGRect(x: self.W, y: CGFloat (arc4random_uniform(UInt32(self.H)-50)), width: self.W*(0.2), height:self.H*(0.2))
+                
+                self.view.addSubview(bird)
+                self.view.bringSubviewToFront(bird)
+                
+                self.dynamicItemBehavior.addItem(bird)
+                self.dynamicItemBehavior.addLinearVelocity(CGPoint(x: -200, y:0), for: bird)
+                self.collisionBehavior.addItem(bird)
+                
+                self.score -= (50)
+                
+            }
         }
-        //
-        
-        //crows2
-        var crows2Array: [UIImage]!
-        
-        crows2Array = [UIImage(named: "bird1.png")!,
-                      UIImage(named:  "bird2.png")!,
-                      UIImage(named:  "bird3.png")!,
-                      UIImage(named:  "bird4.png")!,
-                      UIImage(named:  "bird5.png")!,
-                      UIImage(named:  "bird6.png")!,
-                      UIImage(named:  "bird7.png")!,
-                      UIImage(named:  "bird8.png")!,
-                      UIImage(named:  "bird9.png")!,
-                      UIImage(named:  "bird10.png")!]
-        
-        crows2.image = UIImage.animatedImage(with: crows2Array, duration: 1)
-        
-        crows2.frame = CGRect(x:400, y: 100, width: 100, height: 40)
-        self.view.addSubview(crows2)
-        
-        bird = DispatchTime.now() + 12
-        DispatchQueue.main.asyncAfter(deadline: bird) {
-            self.dynamicItemBehavior.addItem(self.crows2)
-            self.dynamicItemBehavior.addLinearVelocity(CGPoint(x: -200, y: 0), for: self.crows2)
-            self.collisionBehavior.addItem(self.crows2)
-        }
-        //
         
         
         
@@ -304,10 +263,11 @@ class ViewController: UIViewController, subviewDelegate {
         }
     }
     
-
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
 }
 }
+
