@@ -57,8 +57,9 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dW4-Cj-e1w">
-                                        <rect key="frame" x="239" y="213" width="46" height="30"/>
+                                        <rect key="frame" x="224" y="213" width="99" height="49"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="31"/>
                                         <state key="normal" title="Replay"/>
                                         <connections>
                                             <action selector="replayButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="FXt-Gz-R3p"/>

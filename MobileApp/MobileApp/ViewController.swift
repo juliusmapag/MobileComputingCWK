@@ -14,8 +14,6 @@ protocol subviewDelegate {
 
 class ViewController: UIViewController, subviewDelegate {
     
-    var crowsArray : [UIImageView] = []
-
     func changeSomething() {
         collisionBehavior.removeAllBoundaries()
         collisionBehavior.addBoundary(withIdentifier: "barrier" as NSCopying, for: UIBezierPath(rect: plane.frame))
@@ -70,12 +68,15 @@ class ViewController: UIViewController, subviewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        MusicHelper.sharedHelper.playBackgroundMusic()
+        
         
         gameover.frame = CGRect(x: 0, y: 0, width: W*(1), height: H*(1))
         
         
         plane.delegate = self
         
+        //UIItemBehaviour
         dynamicAnimator = UIDynamicAnimator(referenceView: self.view)
         dynamicItemBehavior = UIDynamicItemBehavior(items: [])
         collisionBehavior = UICollisionBehavior (items: []);
@@ -83,10 +84,9 @@ class ViewController: UIViewController, subviewDelegate {
         dynamicAnimator.addBehavior(dynamicItemBehavior)
         dynamicAnimator.addBehavior(collisionBehavior)
         
-        //animation of coins
-
         
         
+        //coin animation with collision and dissapear when collided with plane
         for index in 0...9{
             let delay = Double(self.coinArray[index])
             let release = DispatchTime.now() + delay
@@ -103,7 +103,7 @@ class ViewController: UIViewController, subviewDelegate {
                 self.view.bringSubviewToFront(coin)
                 
                 self.dynamicItemBehavior.addItem(coin)
-                self.dynamicItemBehavior.addLinearVelocity(CGPoint(x: -100, y:0), for: coin)
+                self.dynamicItemBehavior.addLinearVelocity(CGPoint(x: -250, y:0), for: coin)
                 self.collisionBehavior.addItem(coin)
                 
                 self.score += (100)
@@ -123,7 +123,7 @@ class ViewController: UIViewController, subviewDelegate {
         
   
       
-        
+        //Bird animation
         for index in 0...9{
             let delay = Double(self.birdArray[index])
             let release = DispatchTime.now() + delay
@@ -150,7 +150,7 @@ class ViewController: UIViewController, subviewDelegate {
                 self.view.bringSubviewToFront(bird)
                 
                 self.dynamicItemBehavior.addItem(bird)
-                self.dynamicItemBehavior.addLinearVelocity(CGPoint(x: -200, y:0), for: bird)
+                self.dynamicItemBehavior.addLinearVelocity(CGPoint(x: -300, y:0), for: bird)
                 self.collisionBehavior.addItem(bird)
                 
                 self.score -= (50)
@@ -160,7 +160,7 @@ class ViewController: UIViewController, subviewDelegate {
         
         
      
-        
+        //Plane
         var planeArray: [UIImage]!
         
         planeArray = [UIImage(named: "plane1.png")!,
@@ -199,7 +199,7 @@ class ViewController: UIViewController, subviewDelegate {
         
        
 
-        //
+        //Sky background, name not changed from Road as this took too much renaming
         var roadArray: [UIImage]!
         
         roadArray = [UIImage(named: "sky25.png")!,
@@ -258,7 +258,7 @@ class ViewController: UIViewController, subviewDelegate {
 //        tree.frame = CGRect(x: 0, y: 0, width: W*1, height: H*(0.78))
         
        
-        
+        //timer for the gameoverscreen to appear after 20seconds
         let timer = DispatchTime.now() + 20
         DispatchQueue.main.asyncAfter(deadline: timer) {
             self.gameover.alpha = 1

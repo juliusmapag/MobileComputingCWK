@@ -39,6 +39,8 @@
 		C622776E21E3AB940060D30F /* sky3.png in Resources */ = {isa = PBXBuildFile; fileRef = C622775521E3AB940060D30F /* sky3.png */; };
 		C622776F21E3AB940060D30F /* sky15.png in Resources */ = {isa = PBXBuildFile; fileRef = C622775621E3AB940060D30F /* sky15.png */; };
 		C622777021E3AB940060D30F /* sky4.png in Resources */ = {isa = PBXBuildFile; fileRef = C622775721E3AB940060D30F /* sky4.png */; };
+		C622777821E3C4420060D30F /* MusicHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C622777721E3C4420060D30F /* MusicHelper.swift */; };
+		C622777A21E3C54F0060D30F /* gamemusic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C622777921E3C54F0060D30F /* gamemusic.mp3 */; };
 		C6A8661321AC43CC009B3CD0 /* planedrag.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A8661221AC43CC009B3CD0 /* planedrag.swift */; };
 		C6B6256C21ADC747003DC6CA /* bird4.png in Resources */ = {isa = PBXBuildFile; fileRef = C6B6252821ADC743003DC6CA /* bird4.png */; };
 		C6B6256D21ADC747003DC6CA /* tree2.png in Resources */ = {isa = PBXBuildFile; fileRef = C6B6252921ADC743003DC6CA /* tree2.png */; };
@@ -144,6 +146,8 @@
 		C622775521E3AB940060D30F /* sky3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sky3.png; sourceTree = "<group>"; };
 		C622775621E3AB940060D30F /* sky15.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sky15.png; sourceTree = "<group>"; };
 		C622775721E3AB940060D30F /* sky4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sky4.png; sourceTree = "<group>"; };
+		C622777721E3C4420060D30F /* MusicHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicHelper.swift; sourceTree = "<group>"; };
+		C622777921E3C54F0060D30F /* gamemusic.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = gamemusic.mp3; sourceTree = "<group>"; };
 		C6A8661221AC43CC009B3CD0 /* planedrag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = planedrag.swift; sourceTree = "<group>"; };
 		C6B6252821ADC743003DC6CA /* bird4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bird4.png; sourceTree = "<group>"; };
 		C6B6252921ADC743003DC6CA /* tree2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tree2.png; sourceTree = "<group>"; };
@@ -241,6 +245,7 @@
 		C60DE62F21AC27240084133C /* MobileApp */ = {
 			isa = PBXGroup;
 			children = (
+				C622777921E3C54F0060D30F /* gamemusic.mp3 */,
 				C622774521E3AB930060D30F /* sky1.png */,
 				C622774021E3AB920060D30F /* sky2.png */,
 				C622775521E3AB940060D30F /* sky3.png */,
@@ -319,6 +324,7 @@
 				C60DE63721AC27250084133C /* Assets.xcassets */,
 				C60DE63921AC27250084133C /* LaunchScreen.storyboard */,
 				C60DE63C21AC27250084133C /* Info.plist */,
+				C622777721E3C4420060D30F /* MusicHelper.swift */,
 			);
 			path = MobileApp;
 			sourceTree = "<group>";
@@ -472,6 +478,7 @@
 				C6B625AC21ADC747003DC6CA /* bird7.png in Resources */,
 				C6B6257E21ADC747003DC6CA /* bird2.png in Resources */,
 				C622776021E3AB940060D30F /* sky8.png in Resources */,
+				C622777A21E3C54F0060D30F /* gamemusic.mp3 in Resources */,
 				C6B6259821ADC747003DC6CA /* plane2.png in Resources */,
 				C622775C21E3AB940060D30F /* sky19.png in Resources */,
 				C6B625AF21ADC747003DC6CA /* plane7.png in Resources */,
@@ -544,6 +551,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C60DE63321AC27240084133C /* ViewController.swift in Sources */,
+				C622777821E3C4420060D30F /* MusicHelper.swift in Sources */,
 				C60DE63121AC27240084133C /* AppDelegate.swift in Sources */,
 				C6A8661321AC43CC009B3CD0 /* planedrag.swift in Sources */,
 			);
