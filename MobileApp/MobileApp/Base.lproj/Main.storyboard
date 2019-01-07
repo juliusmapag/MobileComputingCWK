@@ -54,19 +54,6 @@
                                 <rect key="frame" x="38" y="0.0" width="543" height="332"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oRx-Le-0uQ">
-                                        <rect key="frame" x="274" y="159" width="101" height="44"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" red="0.1018697165" green="0.01266230722" blue="0.66666668650000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
-                                        <color key="tintColor" red="0.16528100009999999" green="0.41753022169999998" blue="0.65085952979999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <state key="normal" title="Replay">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="replay:" destination="BYZ-38-t0r" eventType="touchUpInside" id="psF-7f-A9U"/>
-                                        </connections>
-                                    </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vun-cK-oJa">
                                         <rect key="frame" x="185" y="231" width="230" height="93"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -74,6 +61,21 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="GAME OVER" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qhn-Mt-q3b">
+                                        <rect key="frame" x="169" y="34" width="204" height="45"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="37"/>
+                                        <color key="textColor" red="0.1018697165" green="0.01266230722" blue="0.66666668650000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dW4-Cj-e1w">
+                                        <rect key="frame" x="239" y="213" width="46" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Replay"/>
+                                        <connections>
+                                            <action selector="replayButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="FXt-Gz-R3p"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <color key="tintColor" red="0.1018697165" green="0.01266230722" blue="0.66666668650000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -90,7 +92,7 @@
                         <outlet property="crows2" destination="flp-Bv-rzg" id="Yc8-6h-vO8"/>
                         <outlet property="gameover" destination="vsz-C8-P4K" id="UH0-pV-S8N"/>
                         <outlet property="plane" destination="U0B-Tm-Gkm" id="kej-ek-mcT"/>
-                        <outlet property="replayscreenfit" destination="oRx-Le-0uQ" id="iKp-9a-NUi"/>
+                        <outlet property="replayButton" destination="dW4-Cj-e1w" id="Xoe-pl-C5B"/>
                         <outlet property="road" destination="6SV-si-c91" id="G9z-Jx-7Lm"/>
                         <outlet property="scorelabel" destination="Vun-cK-oJa" id="gAr-eV-xkA"/>
                         <outlet property="tree" destination="WT8-KM-Car" id="VhM-J0-vVp"/>

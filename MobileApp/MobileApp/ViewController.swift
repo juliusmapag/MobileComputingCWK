@@ -6,12 +6,16 @@
 //  Copyright © 2017 Xianhui Che. All rights reserved.
 //
 import UIKit
+import AVFoundation
 
 protocol subviewDelegate {
     func changeSomething()
 }
 
 class ViewController: UIViewController, subviewDelegate {
+    
+    var crowsArray : [UIImageView] = []
+
     func changeSomething() {
         collisionBehavior.removeAllBoundaries()
         collisionBehavior.addBoundary(withIdentifier: "barrier" as NSCopying, for: UIBezierPath(rect: plane.frame))
@@ -46,29 +50,30 @@ class ViewController: UIViewController, subviewDelegate {
     
     @IBOutlet weak var scorelabel: UILabel!
     
-    @IBOutlet weak var replayscreenfit: UIButton!
-    
-    @IBAction func replay(_ sender: Any) {
-        self.viewDidLoad()
+    @IBOutlet weak var replayButton: UIButton!
+    @IBAction func replayButton(_ sender: UIButton) {
+        reset()
         
-        gameover.isHidden = true
-        crows1.isHidden = true
-        crows.isHidden = true
-        crows2.isHidden = true
+    }
+    
+    func reset(){
         score = 0
+        
+        viewDidLoad()
+        
     }
     
     var dynamicAnimator: UIDynamicAnimator!
     var dynamicItemBehavior: UIDynamicItemBehavior!
     var collisionBehavior: UICollisionBehavior!
     
-    let coinArray = [0,2,4,6,8,10,12,14,16,18]
+    var coinArray = [0,2,4,6,8,10,12,14,16,18]
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         gameover.frame = CGRect(x: 0, y: 0, width: W*(1), height: H*(1))
-        replayscreenfit.frame = CGRect(x: 0, y: 0, width: W*(1), height: H*(1))
+        
         
         plane.delegate = self
         
@@ -112,6 +117,20 @@ class ViewController: UIViewController, subviewDelegate {
             }
         }
         
+        func time(){
+            
+
+            self.view.addSubview(gameover)
+            gameover.frame = UIScreen.main.bounds
+            gameover.frame.origin.y = 0
+            
+            self.view.addSubview(replayButton)
+            self.replayButton?.isHidden = false
+            self.view.bringSubviewToFront(gameover)
+            self.view.bringSubviewToFront(replayButton!)
+            self.view.bringSubviewToFront(scorelabel)
+            
+        }
         
 
         //crows
@@ -136,7 +155,6 @@ class ViewController: UIViewController, subviewDelegate {
         self.dynamicItemBehavior.addItem(crows)
         self.dynamicItemBehavior.addLinearVelocity(CGPoint(x: -300, y: 0), for: crows)
         self.collisionBehavior.addItem(crows)
-        //
         
        
         
@@ -279,12 +297,14 @@ class ViewController: UIViewController, subviewDelegate {
         tree.frame = CGRect(x: 0, y: 0, width: W*1, height: H*(0.78))
     
         
-        let timer = DispatchTime.now() + 10
+        let timer = DispatchTime.now() + 3
         DispatchQueue.main.asyncAfter(deadline: timer) {
             self.gameover.alpha = 1
         
         }
     }
+    
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
