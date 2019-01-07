@@ -50,6 +50,7 @@ class ViewController: UIViewController, subviewDelegate {
     
     @IBOutlet weak var replayButton: UIButton!
     @IBAction func replayButton(_ sender: Any) {
+        clearAll()
         self.viewDidLoad()
         self.gameover.alpha = 0
         score = 0
@@ -272,5 +273,15 @@ class ViewController: UIViewController, subviewDelegate {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
 }
-}
 
+func clearAll() {
+
+    for (anotherview) in self.view.subviews
+    {
+        if ((self.plane != anotherview) && (self.road != anotherview) && (self.gameover != anotherview))
+        {
+            anotherview.removeFromSuperview()
+        }
+    }
+}
+}
