@@ -132,16 +132,11 @@ class ViewController: UIViewController, subviewDelegate {
                 let bird = UIImageView(image: nil)
                 var birdImageArray: [UIImage]
                 
-                birdImageArray = [UIImage(named: "bird1.png")!,
-                                  UIImage(named: "bird2.png")!,
-                                  UIImage(named: "bird3.png")!,
-                                  UIImage(named: "bird4.png")!,
-                                  UIImage(named: "bird5.png")!,
-                                  UIImage(named: "bird6.png")!,
-                                  UIImage(named: "bird7.png")!,
-                                  UIImage(named: "bird8.png")!,
-                                  UIImage(named: "bird9.png")!,
-                                  UIImage(named: "bird10.png")!,]
+                birdImageArray = [UIImage(named: "alien1.png")!,
+                                  UIImage(named: "alien2.png")!,
+                                  UIImage(named: "alien3.png")!,
+                                  UIImage(named: "alien3.png")!,
+                                  UIImage(named: "alien5.png")!,]
                                 
                 
                 bird.image = UIImage.animatedImage(with: birdImageArray, duration: 0.5)
@@ -164,24 +159,26 @@ class ViewController: UIViewController, subviewDelegate {
         //Plane
         var planeArray: [UIImage]!
         
-        planeArray = [UIImage(named: "plane1.png")!,
-                      UIImage(named: "plane2.png")!,
-                      UIImage(named: "plane3.png")!,
-                      UIImage(named: "plane4.png")!,
-                      UIImage(named: "plane5.png")!,
-                      UIImage(named: "plane6.png")!,
-                      UIImage(named: "plane7.png")!,
-                      UIImage(named: "plane8.png")!,
-                      UIImage(named: "plane9.png")!,
-                      UIImage(named: "plane10.png")!,
-                      UIImage(named: "plane11.png")!,
-                      UIImage(named: "plane12.png")!,
-                      UIImage(named: "plane13.png")!,
-                      UIImage(named: "plane14.png")!,
-                      UIImage(named: "plane15.png")!]
+        planeArray = [UIImage(named: "jet1.png")!,
+                      UIImage(named: "jet2.png")!,
+                      UIImage(named: "jet3.png")!,
+                      UIImage(named: "jet4.png")!,
+                      UIImage(named: "jet5.png")!,
+                      UIImage(named: "jet6.png")!,
+                      UIImage(named: "jet7.png")!,
+                      UIImage(named: "jet8.png")!,
+                      UIImage(named: "jet9.png")!,
+                      UIImage(named: "jet10.png")!,
+                      UIImage(named: "jet11.png")!,
+                      UIImage(named: "jet12.png")!,
+                      UIImage(named: "jet13.png")!,
+                      UIImage(named: "jet14.png")!,
+                      UIImage(named: "jet15.png")!,
+                      UIImage(named: "jet16.png")!,
+                      UIImage(named: "jet17.png")!]
         
         plane.image = UIImage.animatedImage(with: planeArray, duration: 1)
-        plane.frame = CGRect(x: 0, y: H*(0.2), width: W*(0.2), height: H*(0.125))
+        plane.frame = CGRect(x: 0, y: H*(0.2), width: W*(0.4), height: H*(0.2))
         
        
 
@@ -228,39 +225,16 @@ class ViewController: UIViewController, subviewDelegate {
                       UIImage(named: "sky3.png")!,
                       UIImage(named: "sky2.png")!]
         
-        road.image = UIImage.animatedImage(with: roadArray, duration: 5)
+        road.image = UIImage.animatedImage(with: roadArray, duration: 4)
         road.frame = CGRect (x:0, y:0, width: W*1, height: H*1)
         
       
        
         
-//        var treeArray: [UIImage]!
-//
-//        treeArray = [UIImage(named: "tree1.png")!,
-//                     UIImage(named: "tree2.png")!,
-//                     UIImage(named: "tree3.png")!,
-//                     UIImage(named: "tree4.png")!,
-//                     UIImage(named: "tree5.png")!,
-//                     UIImage(named: "tree6.png")!,
-//                     UIImage(named: "tree7.png")!,
-//                     UIImage(named: "tree8.png")!,
-//                     UIImage(named: "tree9.png")!,
-//                     UIImage(named: "tree10.png")!,
-//                     UIImage(named: "tree11.png")!,
-//                     UIImage(named: "tree12.png")!,
-//                     UIImage(named: "tree13.png")!,
-//                     UIImage(named: "tree14.png")!,
-//                     UIImage(named: "tree15.png")!,
-//                     UIImage(named: "tree16.png")!,
-//                     UIImage(named: "tree17.png")!]
-//
-//
-//        tree.image = UIImage.animatedImage(with: treeArray, duration: 1)
-//        tree.frame = CGRect(x: 0, y: 0, width: W*1, height: H*(0.78))
         
        
         //timer for the gameoverscreen to appear after 20seconds
-        let timer = DispatchTime.now() + 20
+        let timer = DispatchTime.now() + 19
         DispatchQueue.main.asyncAfter(deadline: timer) {
             self.gameover.alpha = 1
         
