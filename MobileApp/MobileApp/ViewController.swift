@@ -51,17 +51,14 @@ class ViewController: UIViewController, subviewDelegate {
     @IBOutlet weak var scorelabel: UILabel!
     
     @IBOutlet weak var replayButton: UIButton!
-    @IBAction func replayButton(_ sender: UIButton) {
-        reset()
+    @IBAction func replayButton(_ sender: Any) {
+        self.viewDidLoad()
+        self.gameover.alpha = 0
+        score = 0
         
     }
     
-    func reset(){
-        score = 0
-        
-        viewDidLoad()
-        
-    }
+    
     
     var dynamicAnimator: UIDynamicAnimator!
     var dynamicItemBehavior: UIDynamicItemBehavior!
@@ -87,6 +84,8 @@ class ViewController: UIViewController, subviewDelegate {
         dynamicAnimator.addBehavior(collisionBehavior)
         
         //animation of coins
+
+        
         
         for index in 0...9{
             let delay = Double(self.coinArray[index])
@@ -119,23 +118,11 @@ class ViewController: UIViewController, subviewDelegate {
             }
         }
         
-        func time(){
-            
-
-            self.view.addSubview(gameover)
-            gameover.frame = UIScreen.main.bounds
-            gameover.frame.origin.y = 0
-            
-            self.view.addSubview(replayButton)
-            self.replayButton?.isHidden = false
-            self.view.bringSubviewToFront(gameover)
-            self.view.bringSubviewToFront(replayButton!)
-            self.view.bringSubviewToFront(scorelabel)
-            
-        }
         
-
-        //crows
+      
+        
+  
+      
         
         for index in 0...9{
             let delay = Double(self.birdArray[index])
@@ -172,6 +159,7 @@ class ViewController: UIViewController, subviewDelegate {
         }
         
         
+     
         
         var planeArray: [UIImage]!
         
@@ -194,6 +182,10 @@ class ViewController: UIViewController, subviewDelegate {
         plane.image = UIImage.animatedImage(with: planeArray, duration: 1)
         plane.frame = CGRect(x: 0, y: H*(0.2), width: W*(0.2), height: H*(0.125))
         
+       
+
+        
+        
         
     
         var cloudArray: [UIImage]!
@@ -204,7 +196,9 @@ class ViewController: UIViewController, subviewDelegate {
         cloud.image = UIImage.animatedImage(with: cloudArray, duration: 1)
         cloud.frame = CGRect(x: 0, y: 0, width: W*1, height: H * (0.5))
         //
-    
+        
+       
+
         //
         var roadArray: [UIImage]!
         
@@ -231,6 +225,9 @@ class ViewController: UIViewController, subviewDelegate {
         road.image = UIImage.animatedImage(with: roadArray, duration: 1)
         road.frame = CGRect (x:0, y:0, width: W*1, height: H*1)
         
+      
+       
+        
         var treeArray: [UIImage]!
         
         treeArray = [UIImage(named: "tree1.png")!,
@@ -254,9 +251,10 @@ class ViewController: UIViewController, subviewDelegate {
         
         tree.image = UIImage.animatedImage(with: treeArray, duration: 1)
         tree.frame = CGRect(x: 0, y: 0, width: W*1, height: H*(0.78))
-    
         
-        let timer = DispatchTime.now() + 3
+       
+        
+        let timer = DispatchTime.now() + 20
         DispatchQueue.main.asyncAfter(deadline: timer) {
             self.gameover.alpha = 1
         
